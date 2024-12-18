@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recipe Website</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,36 +46,6 @@
             margin: 20px auto;
         }
 
-        .recipe-card {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .recipe-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .recipe-card h2 {
-            color: #ff7043;
-        }
-
-        .recipe-card ul {
-            padding-left: 20px;
-        }
-
-        .recipe-card li {
-            margin: 8px 0;
-        }
-
-        .recipe-card .instructions {
-            font-style: italic;
-        }
-
         footer {
             background-color: #333;
             color: white;
@@ -87,6 +56,58 @@
             bottom: 0;
         }
 
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .popup-content input,
+        .popup-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .popup-content button {
+            background-color: #ff7043;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-content button:hover {
+            background-color: #f44336;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -101,11 +122,10 @@
         <a href="#home">Home</a>
         <a href="#recipes">Recipes</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" id="contact-link">Contact</a>
     </nav>
 
     <div class="container">
-
         <section id="home">
             <h2>Welcome to Our Recipe Website</h2>
             <p>Explore a variety of delicious recipes that are easy to make and perfect for any occasion. Browse our collection
@@ -114,52 +134,32 @@
 
         <section id="recipes">
             <h2>Popular Recipes</h2>
-
-            <div class="recipe-card">
-                <img src="https://via.placeholder.com/800x400" alt="Recipe Image">
-                <h2>Spaghetti Carbonara</h2>
-                <h3>Ingredients:</h3>
-                <ul>
-                    <li>Spaghetti</li>
-                    <li>Eggs</li>
-                    <li>Bacon</li>
-                    <li>Parmesan Cheese</li>
-                    <li>Black Pepper</li>
-                </ul>
-                <h3>Instructions:</h3>
-                <p class="instructions">
-                    Cook spaghetti in salted boiling water. In a separate pan, cook bacon until crispy. Whisk eggs and
-                    cheese in a bowl. Combine spaghetti, bacon, and egg mixture. Stir and serve with freshly ground
-                    black pepper.
-                </p>
-            </div>
-
-            <div class="recipe-card">
-                <img src="https://via.placeholder.com/800x400" alt="Recipe Image">
-                <h2>Chicken Alfredo</h2>
-                <h3>Ingredients:</h3>
-                <ul>
-                    <li>Chicken Breasts</li>
-                    <li>Fettucine Pasta</li>
-                    <li>Heavy Cream</li>
-                    <li>Parmesan Cheese</li>
-                    <li>Garlic</li>
-                </ul>
-                <h3>Instructions:</h3>
-                <p class="instructions">
-                    Season chicken with salt and pepper, cook until golden. Prepare fettucine pasta. In a separate pan, heat
-                    cream and add garlic, then combine with chicken, pasta, and cheese for a creamy dish.
-                </p>
-            </div>
-
+            <!-- Add your recipe content here -->
         </section>
+    </div>
 
+    <!-- Contact Popup -->
+    <div id="contact-popup" class="popup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">×</button>
+            <h3>Contact Us</h3>
+            <form action="#" method="post">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Delicious Recipes. All Rights Reserved.</p>
     </footer>
-    <script src="index.js"></script>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+
 </body>
 
 </html>
+
